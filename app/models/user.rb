@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 class User < ActiveRecord::Base
+  has_many :reviews, dependent: :destroy
   attr_accessible :name, :password, :password_confirmation
   validates :name, presence: true, uniqueness: true
   has_secure_password

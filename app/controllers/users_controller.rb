@@ -9,11 +9,12 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  skip_before_filter :authorize
   def index
     @users = User.order(:name)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {redirect_to store_url} # index.html.erb
       format.json { render json: @users }
     end
   end

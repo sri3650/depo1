@@ -7,6 +7,8 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 Depo1::Application.routes.draw do
+  get "reviews/create"
+
   get 'admin' => 'admin#index'
 
   controller :sessions do
@@ -24,10 +26,15 @@ Depo1::Application.routes.draw do
   resources :carts
 
   get "store/index"
+  post "line_items/review"
+
+  resources :reviews do
+  end
 
   resources :products do
     get :who_bought, on: :member
   end
+
 
   # ...
   # The priority is based upon order of creation:

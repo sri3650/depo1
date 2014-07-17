@@ -1,0 +1,9 @@
+<%= form_for (Review.new) do |f| %>
+  <%= f.hidden_field :product_id, :value => @product.id %>
+
+      <%= f.label 'enter a rating' %>
+  <!-- START_HIGHLIGHT -->
+      <%= f.select :rating, Review::RATE_TYPES,
+                    prompt: 'Select a rating' %>
+  <%= button_to 'submit' %>
+<% end %>

@@ -7,7 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 class LineItemsController < ApplicationController
-    skip_before_filter :authorize, only: :create
+  skip_before_filter :authorize, only: :create
 
   # GET /line_items
   # GET /line_items.json
@@ -68,6 +68,15 @@ class LineItemsController < ApplicationController
       end
     end
   end
+  def review
+    @product=Product.find(params[:product_id])
+    respond_to do|format|
+     format.html
+     end 
+   end  
+
+ 
+ 
 
   # PUT /line_items/1
   # PUT /line_items/1.json

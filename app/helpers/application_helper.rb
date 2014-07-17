@@ -13,4 +13,24 @@ module ApplicationHelper
     end
     content_tag("div", attributes, &block)
   end
+  def current_user
+    session[:user_id]
+  end
+
+  def avg_rating(product_id)
+  	Review.where("product_id="+product_id.to_s).average("rating").to_f
+  end
+  def given_review(product_id,user_id)
+  	
+  	var=Review.where("product_id="+product_id.to_s + " and user_id="+user_id.to_s)[0]
+  	if(var.nil?)
+  		return true
+  	end
+    var=var.rating		
+  	if var==0
+  		return true;
+  	else 
+  		return false;
+  	end
+  end
 end
