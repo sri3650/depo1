@@ -33,4 +33,28 @@ module ApplicationHelper
   		return false;
   	end
   end
+  def added_wishlist(product_id,user_id)
+  	var3= Wishlist.where("product_id="+product_id.to_s+" and user_id="+user_id.to_s)[0] 
+  	if(var3.nil?)
+  		return true
+  	else
+  		return false
+    end
+  end 		
+  def adm()
+    	var2=User.where("id="+current_user.to_s)[0]
+    	if(var2.nil?)
+    		return false
+
+    	elsif(var2.name=='admin')
+    	  return true;
+    	  else
+    	  return false
+    	  end
+    	
+  end
+  def psname(product_id)
+  	var4= Product.where("id="+product_id.to_s)[0]
+  	
+  end	
 end

@@ -8,6 +8,7 @@
 #---
 class ApplicationController < ActionController::Base
   before_filter :authorize
+  #before_filter :authorize_admin
   protect_from_forgery
 
   def current_user
@@ -23,6 +24,10 @@ class ApplicationController < ActionController::Base
      session[:cart_id] = cart.id
      cart
   end
+  
+
+
+
 
   # def current_cart
   #   if session[:user].present? && session[:user][:cart_id].present?
@@ -51,5 +56,19 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, notice: "Please log in"
     end
   end
+  def authorize_admin
+    if(session[:user_id])
+    var= User.find_by_id(session[:user_id])[0]
+    if(var.nil?)
+      redirect_to login_url
+    else
+      
+    unless var.name=='admin'
+      redirect_to store_url
+    end
+    end  
+  end
+  end  
+
 
 end

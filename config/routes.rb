@@ -7,6 +7,9 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 Depo1::Application.routes.draw do
+  resources :wishlists
+
+
   get "reviews/create"
 
   get 'admin' => 'admin#index'

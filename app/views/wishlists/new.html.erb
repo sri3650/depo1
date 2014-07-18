@@ -1,0 +1,13 @@
+<% @var.each do |temp| %>
+  <div class="entry">
+      <%= image_tag(psname(temp.product_id).image_url) %>
+      <h3><%= psname(temp.product_id).title %></h3>
+      <p><%= sanitize(psname(temp.product_id).description) %></p>
+      <div class="price_line">
+        <span class="price"><%= number_to_currency(psname(temp.product_id).price) %></span>
+  <!-- START_HIGHLIGHT -->
+        
+  <!-- END_HIGHLIGHT -->
+      </div>
+    </div>
+  <% end %>

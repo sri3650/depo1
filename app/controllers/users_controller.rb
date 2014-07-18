@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   skip_before_filter :authorize
+  skip_before_filter :autorize_admin
   def index
     @users = User.order(:name)
 

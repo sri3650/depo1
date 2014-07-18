@@ -8,6 +8,7 @@
 #---
 class SessionsController < ApplicationController
   skip_before_filter :authorize
+  #skip_before_filter :autorize_admin
   def new
   end
 
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
     user = User.find_by_name(params[:name])
     if user and user.authenticate(params[:password])
     session[:user_id] = user.id
+    session[:user_name]=user.name
       # session[:user] = {user_id: user.id}
       redirect_to store_url
     else
