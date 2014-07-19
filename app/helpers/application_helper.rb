@@ -20,6 +20,10 @@ module ApplicationHelper
   def avg_rating(product_id)
   	Review.where("product_id="+product_id.to_s).average("rating").to_f
   end
+  def count(product_id)
+  	 var=Review.where("product_id="+product_id.to_s)
+     var.count
+  end     
   def given_review(product_id,user_id)
   	
   	var=Review.where("product_id="+product_id.to_s + " and user_id="+user_id.to_s)[0]

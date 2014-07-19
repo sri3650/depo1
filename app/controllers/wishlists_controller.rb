@@ -32,10 +32,16 @@ class WishlistsController < ApplicationController
       format.json { render json: @wishlist }
     end
   end
+  
 
   # GET /wishlists/1/edit
   def edit
-    @wishlist = Wishlist.find(params[:id])
+
+
+    var=Wishlist.where("product_id="+params[:product_id.to_s])
+    var.destroy_all
+    
+        redirect_to store_url
   end
 
   # POST /wishlists

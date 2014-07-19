@@ -6,7 +6,7 @@
       <div class="price_line">
         <span class="price"><%= number_to_currency(psname(temp.product_id).price) %></span>
   <!-- START_HIGHLIGHT -->
-        
+        <%= button_to 'remove from wishlist',wishlists_edit_path(product_id: temp.product_id) %>
   <!-- END_HIGHLIGHT -->
       </div>
     </div>

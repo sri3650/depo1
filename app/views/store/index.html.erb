@@ -14,15 +14,16 @@
 <!-- START_HIGHLIGHT -->
       <%= button_to 'Add to Cart', line_items_path(product_id: product),
         remote: true %>
-       <h4>product rating</h4> 
-       <h6><%= avg_rating(product.id) %></h6>
+       <h4>product rating:</h4> 
+       <h4><%= avg_rating(product.id).round(1) %></h4>
+       <h4>out of <%= count(product.id) %> ratings</h4>
        <% if current_user %>
 
        <%if given_review(product.id, current_user) %>
-        <h5><%= button_to 'Add a review', line_items_review_path(product_id: product.id)%></h5> 
+        <h5><%= button_to 'Add a rating', line_items_review_path(product_id: product.id)%></h5> 
         <% end %>
         <% if added_wishlist(product.id,current_user) %>
-        <%= button_to 'Add to wishlist', wishlists_path(product_id: product) %>
+        <h6><%= button_to 'Add to wishlist', wishlists_path(product_id: product) %><h6>
         <% end %>
         <% end %>
 <!-- END_HIGHLIGHT -->
