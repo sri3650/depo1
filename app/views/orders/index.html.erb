@@ -1,3 +1,6 @@
+
+ <% if adm() %>
+
 <h1>Listing orders</h1>
 
 <table>
@@ -31,3 +34,7 @@
 <!-- START_HIGHLIGHT -->
 <p><%= will_paginate @orders %></p>
 <!-- END_HIGHLIGHT -->
+<% end %>
+<% if !adm() %>
+  <h1> You are not authorized to view this page </h1>
+<% end %>  

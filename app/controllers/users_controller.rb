@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @users = User.order(:name)
 
     respond_to do |format|
-      format.html {redirect_to store_url} # index.html.erb
+      format.html  # index.html.erb
       format.json { render json: @users }
     end
   end
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url,
+        format.html { redirect_to store_url,
           notice: "User #{@user.name} was successfully created." }
         format.json { render json: @user,
           status: :created, location: @user }

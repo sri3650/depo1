@@ -15,7 +15,7 @@
       <%= button_to 'Add to Cart', line_items_path(product_id: product),
         remote: true %>
        <h4>product rating:</h4> 
-       <h4><%= avg_rating(product.id).round(1) %></h4>
+       <h4><%= avg_rating(product.id).round(1) %>/5</h4>
        <h4>out of <%= count(product.id) %> ratings</h4>
        <% if current_user %>
 

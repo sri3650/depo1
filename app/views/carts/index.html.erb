@@ -1,21 +1,29 @@
-<h1>Listing carts</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% if adm() %>
+    <h1>Listing carts</h1>
 
-<% @carts.each do |cart| %>
-  <tr>
-    <td><%= link_to 'Show', cart %></td>
-    <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-    <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<br />
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= link_to 'Show', cart %></td>
+        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<%= link_to 'New Cart', new_cart_path %>
+    <br />
+
+    <%= link_to 'New Cart', new_cart_path %>
+
+  <% end %>
+
+  <% if !adm() %>
+  <h1> You are not authorized to view this page </h1>
+  <% end %>  
