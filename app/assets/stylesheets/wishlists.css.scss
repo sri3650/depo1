@@ -11,6 +11,14 @@
     color: #226;
     border-bottom: 3px dotted #77d;
   }
+  h2 {
+       font-size: 120%;
+       font-family: sans-serif;
+       margin-left: 100px;
+       margin-top: 0;
+       margin-bottom: 2px;
+       color: #228575
+    }
 
   /* An entry in the store catalog */
   .entry {
@@ -25,6 +33,7 @@
       margin-bottom: 5px;
       position: absolute;
     }
+    
 
     h3 {
       font-size: 120%;

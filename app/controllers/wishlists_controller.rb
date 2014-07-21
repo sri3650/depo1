@@ -26,6 +26,7 @@ class WishlistsController < ApplicationController
   def new
       
       @var= Wishlist.where("user_id="+current_user.to_s)
+      
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +41,7 @@ class WishlistsController < ApplicationController
 
     var=Wishlist.where("product_id="+params[:product_id.to_s])
     var.destroy_all
-    
+
         redirect_to store_url
   end
 

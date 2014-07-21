@@ -1,3 +1,7 @@
+<% if @var[0].nil? %>
+<h2> No items in the Wishlist </h2>
+<% end %>
+
 <% @var.each do |temp| %>
   <div class="entry">
       <%= image_tag(psname(temp.product_id).image_url) %>
