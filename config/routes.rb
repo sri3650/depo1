@@ -7,6 +7,7 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 Depo1::Application.routes.draw do
+  
   resources :wishlists
 
 
@@ -15,6 +16,8 @@ Depo1::Application.routes.draw do
   get 'admin' => 'admin#index'
 
   post "wishlists/edit"
+
+  
 
   controller :sessions do
     get  'login' => :new

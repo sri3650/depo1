@@ -15,7 +15,7 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'bootstrap-sass', '2.1'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -28,6 +28,7 @@ gem 'jquery-ui-rails'
  gem 'bcrypt-ruby', '~> 3.0.0'
 
  gem 'will_paginate', '~> 3.0'
+
 
  group :production do
   gem 'pg', '0.12.2'
