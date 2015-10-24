@@ -35,4 +35,5 @@ Depo1::Application.routes.draw do
   resources :products do
     get :who_bought, on: :member
   end
+  root to: 'store#index', as: 'store' # root of the site can be directed like this
 end
