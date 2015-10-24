@@ -1,15 +1,5 @@
-#---
-# Excerpted from "Agile Web Development with Rails",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
-#---
 class LineItemsController < ApplicationController
     skip_before_filter :autorize_admin
-  # GET /line_items
-  # GET /line_items.json
   def index
     @line_items = LineItem.all
 
@@ -19,8 +9,6 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # GET /line_items/1
-  # GET /line_items/1.json
   def show
     @line_item = LineItem.find(params[:id])
 
@@ -30,8 +18,6 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # GET /line_items/new
-  # GET /line_items/new.json
   def new
     @line_item = LineItem.new
 
@@ -41,13 +27,10 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # GET /line_items/1/edit
   def edit
     @line_item = LineItem.find(params[:id])
   end
 
-  # POST /line_items
-  # POST /line_items.json
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
@@ -76,9 +59,6 @@ class LineItemsController < ApplicationController
 
  
  
-
-  # PUT /line_items/1
-  # PUT /line_items/1.json
   def update
     @line_item = LineItem.find(params[:id])
 
@@ -93,8 +73,7 @@ class LineItemsController < ApplicationController
     end
   end
 
-  # DELETE /line_items/1
-  # DELETE /line_items/1.json
+
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy

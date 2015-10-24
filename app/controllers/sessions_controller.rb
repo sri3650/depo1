@@ -1,14 +1,5 @@
-#---
-# Excerpted from "Agile Web Development with Rails",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
-#---
 class SessionsController < ApplicationController
   skip_before_filter :authorize
-  #skip_before_filter :autorize_admin
   def new
   end
 
@@ -17,7 +8,6 @@ class SessionsController < ApplicationController
     if user and user.authenticate(params[:password])
     session[:user_id] = user.id
     session[:user_name]=user.name
-      # session[:user] = {user_id: user.id}
       redirect_to store_url
     else
       redirect_to login_url, alert: "Invalid user/password combination"

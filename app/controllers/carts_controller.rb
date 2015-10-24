@@ -1,27 +1,15 @@
-#---
-# Excerpted from "Agile Web Development with Rails",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
-#---
 class CartsController < ApplicationController
     skip_before_filter :authorize, only: [:create, :update, :destroy]
 
-  # GET /carts
-  # GET /carts.json
   def index
     @carts = Cart.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @carts }
     end
   end
 
-  # GET /carts/1
-  # GET /carts/1.json
   def show
     begin
       @cart = Cart.find(params[:id])
@@ -36,8 +24,6 @@ class CartsController < ApplicationController
     end
   end
 
-  # GET /carts/new
-  # GET /carts/new.json
   def new
     @cart = Cart.new
 
@@ -47,13 +33,11 @@ class CartsController < ApplicationController
     end
   end
 
-  # GET /carts/1/edit
   def edit
     @cart = Cart.find(params[:id])
   end
 
-  # POST /carts
-  # POST /carts.json
+
   def create
     @cart = Cart.new(params[:cart])
 
@@ -68,8 +52,6 @@ class CartsController < ApplicationController
     end
   end
 
-  # PUT /carts/1
-  # PUT /carts/1.json
   def update
     @cart = Cart.find(params[:id])
 
@@ -84,8 +66,6 @@ class CartsController < ApplicationController
     end
   end
 
-  # DELETE /carts/1
-  # DELETE /carts/1.json
   def destroy
     @cart = current_cart
     @cart.destroy
